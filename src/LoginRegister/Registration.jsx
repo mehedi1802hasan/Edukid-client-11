@@ -1,6 +1,10 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../Firebase/Provider';
+import Swal from 'sweetalert2'
 
 const Registration = () => {
+  const {signUpUser,user}=useContext(AuthContext);
     const handleRegistration=event=>{
         event.preventDefault();
         const form=event.target;
@@ -10,7 +14,20 @@ const Registration = () => {
         const imgUrl=form.imgUrl.value;
        const registration={name,email,password,imgUrl};
        console.log(registration)
-        
+       signUpUser(email,password)
+       .then(result=>{
+        const signUped=result.user;
+        console.log(signUped)
+        Swal.fire({
+          title: 'GOOD!',
+          text: 'Congratulations.Successfully Registration completed!!',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+       })
+       .catch(error=>{
+        console.log(error.message)
+       })
     }
     return (
         <div>
@@ -46,7 +63,7 @@ const Registration = () => {
           <input type="text" name='imgUrl' placeholder="please enter image url" className="input input-bordered" />
         </div>
         <div className="mt-6 form-control">
-          <button className="btn btn-warning">Registration</button>
+          <button className="btn btn-warning hover:bg-orange-500">Registration</button>
         </div>
       </form>
     </div>

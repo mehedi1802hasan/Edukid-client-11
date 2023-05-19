@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../Firebase/Provider';
 const Navbar = () => {
+  const {user, logOut,loading}=useContext(AuthContext)
     return (
         <div className=" navbar bg-sky-200">
         <div className="navbar-start">
@@ -30,7 +33,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <a className="">LogOut</a>
         </div>
       </div>
     );
