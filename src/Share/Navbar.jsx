@@ -20,24 +20,24 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/'>All Toys</Link></li>
+            <li><Link to='/alltoys'>All Toys</Link></li>
             <li><Link to='/blogs'>Blogs</Link></li>
            {
             user && 
            <>
-            <li><Link to='/'>My Toys</Link></li>
-            <li><Link to='/'>Added Toys</Link></li>
+            <li><Link to='/mytoys'>My Toys</Link></li>
+            <li><Link to='/addtoys'>Added Toys</Link></li>
            </>
            }
             
             </ul>
           </div>
-        <h3 className='text-4xl font-bold'><span className='text-red-500'>L</span><span className='text-blue-500'>earn</span> <span className='text-red-500'>T</span><span className='text-blue-500'>oys</span></h3>
+        <h3 className='text-4xl font-bold'><span className='text-red-500'>E</span><span className='text-blue-500'>du</span><span className='text-red-500'>k</span><span className='text-blue-500'>id</span></h3>
         </div>
         <div className="hidden navbar-center lg:flex">
           <ul className="px-1 menu menu-horizontal">
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/'>All Toys</Link></li>
+            <li><Link to='/alltoys'>All Toys</Link></li>
             <li><Link to='/blogs'>Blogs</Link></li>
             
             </ul>
@@ -48,8 +48,8 @@ const Navbar = () => {
             <ul className="px-1 menu menu-horizontal">
             
            
-              <li><Link to='/'>My Toys</Link></li>
-              <li><Link to='/'>Added Toys</Link></li>
+              <li><Link to='/mytoys'>My Toys</Link></li>
+              <li><Link to='/addtoys'>Added Toys</Link></li>
               
             </ul>
           </div> 

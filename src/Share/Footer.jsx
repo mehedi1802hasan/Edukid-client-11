@@ -27,7 +27,7 @@ const Footer = () => {
   <p class="flex items-center">
   <span class="mr-2">#Copyright © 2023 - All right reserved by</span>
   <img class="h-6 w-6 rounded-full border border-gray-500" src="https://cdn-icons-png.flaticon.com/512/10741/10741405.png" alt="" />
-  <span class="ml-2">Learn Toys Ltd</span>
+  <span class="ml-2">EduKid Ltd</span>
 </p>
 
   </div>
