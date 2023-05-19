@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 
 import Galleray from '../Gallery/Gallery';
+import Sponser from '../ExtraSection/Sponser';
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <div >
         <Banner></Banner>
       <Galleray></Galleray>
+      <Sponser></Sponser>
         </div>
     );
 };

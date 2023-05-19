@@ -7,9 +7,9 @@ const Banner = () => {
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="text-center hero-content text-neutral-content">
     <div className="max-w-md">
-      <h1 className="mb-5 text-4xl font-bold text-yellow-500">Explore Education</h1>
-      <p className="mb-5 text-yellow-100">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-    
+      <h1 className="mb-5 text-4xl font-bold text-yellow-500">BEST TOYS EVER</h1>
+      <p className="mb-5 text-yellow-100">We make your children happier with the best toys</p>
+    <button>About Us</button>
     </div>
   </div>
 </div>
