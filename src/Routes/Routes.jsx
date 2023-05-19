@@ -4,6 +4,8 @@ import Main from "../Home/Main/Main";
 import Home from "../Home/Home/Home";
 import Login from "../LoginRegister/Login";
 import Registration from "../LoginRegister/Registration";
+import Error from "../ErrorPage/Error";
+import Blogs from "../Blogs/Blogs";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -20,9 +22,17 @@ const router = createBrowserRouter([
         {
             path:'registration',
             element:<Registration></Registration>
+        },{
+          path:'/blogs',
+          element:<Blogs></Blogs>
         }
         
       ]
     },
+
+    {
+      path:'*',
+      element:<Error></Error>
+    }
   ]);
   export default router;

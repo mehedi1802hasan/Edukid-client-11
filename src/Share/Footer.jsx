@@ -10,7 +10,9 @@ const Footer = () => {
     <Link to="/" className="link link-hover">About us</Link> 
     <Link to="/" className="link link-hover">Contact</Link> 
     <Link to="/" className="link link-hover">Jobs</Link> 
-    <Link to="/" className="link link-hover">Press kit</Link>
+    <Link to="/" className="link link-hover">refund-policy</Link>
+    <Link to="/" className="link link-hover">Map</Link> 
+    <Link to="/" className="link link-hover">Address</Link>
   </div> 
   <div>
     <div className="grid grid-flow-col gap-4">
@@ -22,7 +24,12 @@ const Footer = () => {
     </div>
   </div> 
   <div>
-    <p>#Copyright © 2023 - All right reserved by Learn Toys Ltd</p>
+  <p class="flex items-center">
+  <span class="mr-2">#Copyright © 2023 - All right reserved by</span>
+  <img class="h-6 w-6 rounded-full border border-gray-500" src="https://cdn-icons-png.flaticon.com/512/10741/10741405.png" alt="" />
+  <span class="ml-2">Learn Toys Ltd</span>
+</p>
+
   </div>
 </footer>
       </div>
