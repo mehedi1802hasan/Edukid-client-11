@@ -22,7 +22,7 @@ const Login = () => {
             title: 'Wow! Matching!!',
             text: 'Successfully Login done',
             icon: 'success',
-            confirmButtonText: 'Cool'
+            confirmButtonText: 'Okay'
           })
         })
         .catch(error=>{
@@ -31,7 +31,7 @@ const Login = () => {
           title: 'Sorry',
           text: 'YOur information is not correct!!Try again',
           icon: 'error',
-          confirmButtonText: 'Cool'
+          confirmButtonText: 'Ok'
         }) 
         }
         )

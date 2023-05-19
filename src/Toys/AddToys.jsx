@@ -1,6 +1,9 @@
 import React from 'react';
-
+import { useContext } from 'react';
+import { AuthContext } from '../Firebase/Provider';
+import Swal from 'sweetalert2';
 const AddToys = () => {
+  const {user}=useContext(AuthContext)
     const handleAddToy=event=>{
         event.preventDefault();
         const form=event.target;
@@ -17,6 +20,25 @@ const AddToys = () => {
             productName,sellerName,sellerEmail,imgUrl,price,rating,quantity,subCategory,description
         }
         console.log(addToy)
+        fetch('http://localhost:5000/addToys',{
+            method:"POST",
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(addToy)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+              Swal.fire({
+                title: 'Great!',
+                text: 'Successfully Posted to Mongodb',
+                icon: 'success',
+                confirmButtonText: 'Done'
+              })
+            }
+        })
     }
     return (
       <div>
@@ -25,7 +47,7 @@ const AddToys = () => {
       <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
         <div className="form-control">
        <label className="label">
-            <span className="label-text">P.Name</span>
+            <span className="label-text">Product-Name</span>
           </label>
           <input type="text" name='productName' placeholder="Enter your Product name" className="input input-bordered" />
         </div>
@@ -33,13 +55,13 @@ const AddToys = () => {
        <label className="label">
             <span className="label-text">Seller Name</span>
           </label>
-          <input type="text" name='sellerName' placeholder="Enter Seller Name" className="input input-bordered" />
+          <input type="text" name='sellerName' placeholder="Enter Seller Name" className="input input-bordered" defaultValue={user?.displayName} />
         </div>
         <div className="form-control">
        <label className="label">
             <span className="label-text">Seller Email</span>
           </label>
-          <input type="text" name="sellerEmail" placeholder="Enter seller email" className="input input-bordered" />
+          <input type="text" name="sellerEmail" placeholder="Enter seller email" className="input input-bordered" defaultValue={user?.email}/>
         </div>
         
         <div className="form-control">
@@ -64,7 +86,7 @@ const AddToys = () => {
        <label className="label">
             <span className="label-text">Quantity</span>
           </label>
-          <input type="input" placeholder='enter product quantity' name='quantity'  className="input input-bordered" />
+          <input type="number" placeholder='enter product quantity' name='quantity'  className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">

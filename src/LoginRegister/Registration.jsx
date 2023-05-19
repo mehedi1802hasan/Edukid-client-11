@@ -22,7 +22,7 @@ const Registration = () => {
           title: 'GOOD!',
           text: 'Congratulations.Successfully Registration completed!!',
           icon: 'success',
-          confirmButtonText: 'Cool'
+          confirmButtonText: 'Okay'
         })
        })
        .catch(error=>{
