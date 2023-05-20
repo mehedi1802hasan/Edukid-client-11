@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Firebase/Provider';
 import Swal from 'sweetalert2';
-
+import { Link } from 'react-router-dom';
+import UpdateToysModal from './UpdateToysModal';
 const Mytoys = () => {
     const {user}=useContext(AuthContext)
     const [myToys,setMyToys]=useState([])
@@ -13,6 +14,7 @@ const Mytoys = () => {
      console.log(data);
     
    });
+   console.log(myToys)
 },[user])
 const handleDelete=_id=>{
   console.log(_id);
@@ -59,8 +61,23 @@ const handleDelete=_id=>{
                 <td>{myToy.subCategory}</td>
                 <td>{myToy.price}</td>
                 <td>{myToy.quantity}</td>
-               <td><button className='btn btn-outline'>details</button></td>
-               <td><button className='btn btn-outline btn-primary'>Update</button></td>
+               <td><button className='btn btn-outline'>details</button>
+             
+               </td>
+               <td>
+              
+             
+<UpdateToysModal
+  key={myToy._id}
+  myToy={myToy}
+ 
+/>
+{/* The button to open modal */}
+
+
+              
+
+               </td>
                <td><button onClick={()=>handleDelete(myToy._id)} className='btn btn-outline btn-error'>X</button></td>
               </tr>
             ))}
