@@ -1,10 +1,73 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../Firebase/Provider';
+import Swal from 'sweetalert2';
 
 const Mytoys = () => {
+    const {user}=useContext(AuthContext)
+    const [myToys,setMyToys]=useState([])
+    useEffect(()=>{
+   fetch(`http://localhost:5000/myToys/${user?.email}`)
+   .then(res=>res.json())
+   .then(data=>
+    {setMyToys(data);
+     console.log(data);
+    
+   });
+},[user])
+const handleDelete=_id=>{
+  console.log(_id);
+  fetch(`http://localhost:5000/myToys/:email/${_id}`,{
+    method:"DELETE",
+  }).then(res=>res.json())
+  .then(data=>
+   { 
+    console.log(data)
+    if(data.deletedCount>0){
+      Swal.fire({
+        title: 'Wow',
+        text: 'Deleted successfully ',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }) 
+    } 
+  })
+}
+
     return (
-        <div>
-            <h3>my toys</h3>
-        </div>
+        <div className="overflow-x-auto ">
+        <table className="table w-11/12 mx-auto table-compact">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Seller Name</th>
+              <th>Toy Name</th>
+              <th>Sub-Category</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+            myToys.map((myToy, index) => (
+              <tr key={index}>
+                <th>{index + 1}</th>
+                <td>{myToy.sellerName ? myToy.sellerName : "no name"}</td>
+                <td>{myToy.productName}</td>
+                <td>{myToy.subCategory}</td>
+                <td>{myToy.price}</td>
+                <td>{myToy.quantity}</td>
+               <td><button className='btn btn-outline'>details</button></td>
+               <td><button className='btn btn-outline btn-primary'>Update</button></td>
+               <td><button onClick={()=>handleDelete(myToy._id)} className='btn btn-outline btn-error'>X</button></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+       
+      </div>
     );
 };
 

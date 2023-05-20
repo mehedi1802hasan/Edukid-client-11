@@ -8,7 +8,8 @@ import Error from "../ErrorPage/Error";
 import Blogs from "../Blogs/Blogs";
 import AddToys from "../Toys/AddToys";
 import AllToys from "../Toys/AllToys";
-import Mytoys from "../Toys/mytoys";
+import Mytoys from "../Toys/MyToys";
+
 const router = createBrowserRouter([
     {
       path: "/",
