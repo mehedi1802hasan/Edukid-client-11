@@ -93,9 +93,9 @@ const AddToys = () => {
             <span className="label-text">Sub-Category</span>
           </label>
           <select name='subCategory' className='h-12'>
-  <option value="science">Science Toy</option>
-  <option value="math">Math Toy</option>
-  <option value="english">English Toy</option>
+  <option value="science">science</option>
+  <option value="math">math</option>
+  <option value="english">english</option>
  
 </select>
          
