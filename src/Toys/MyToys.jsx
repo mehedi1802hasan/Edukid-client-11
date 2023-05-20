@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Firebase/Provider';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+
 import UpdateToysModal from './UpdateToysModal';
+import MyToyDetails from './MyToyDetails';
 const Mytoys = () => {
     const {user}=useContext(AuthContext)
     const [myToys,setMyToys]=useState([])
@@ -61,7 +62,11 @@ const handleDelete=_id=>{
                 <td>{myToy.subCategory}</td>
                 <td>{myToy.price}</td>
                 <td>{myToy.quantity}</td>
-               <td><button className='btn btn-outline'>details</button>
+               <td>
+                <MyToyDetails
+                myToy={myToy}
+                index={index}
+                ></MyToyDetails>
              
                </td>
                <td>
