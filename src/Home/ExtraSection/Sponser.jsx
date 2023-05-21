@@ -6,7 +6,9 @@ import 'aos/dist/aos.css';
 const Sponsor = () => {
   useEffect(() => {
     AOS.init({
-      duration: 15000, // Adjust the duration as per your requirement
+      duration: 1000,
+    delay: 200,
+    easing: 'ease-in-out' // Adjust the duration as per your requirement
     });
   }, []);
 
@@ -29,7 +31,10 @@ const Sponsor = () => {
 
   return (
     <div className='my-4'>
-      <h3  data-aos="fade-right" className='text-3xl font-bold text-center my-7'>Our Sponsor</h3>
+    
+      <div className='my-10 text-center'> 
+      <h3 data-aos="fade-up" className='text-3xl font-bold text-blue-950'> Meet Our Top <br /> Clients & Partners</h3>
+     </div>
       <Marquee speed={100}>
         <div className="flex gap-4 px-10 mb-7">
           {icons.map((icon, i) => (
