@@ -19,6 +19,8 @@ const Mytoys = () => {
 },[user])
 const handleDelete=_id=>{
   console.log(_id);
+  const procced=confirm('Are you sure you want to delete')
+  if(procced){
   fetch(`http://localhost:5000/myToys/:email/${_id}`,{
     method:"DELETE",
   }).then(res=>res.json())
@@ -34,6 +36,7 @@ const handleDelete=_id=>{
       }) 
     } 
   })
+}
 }
 
     return (
