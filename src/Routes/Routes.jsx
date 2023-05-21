@@ -9,6 +9,8 @@ import Blogs from "../Blogs/Blogs";
 import AddToys from "../Toys/AddToys";
 import AllToys from "../Toys/AllToys";
 import Mytoys from "../Toys/MyToys";
+import TabToyDetails from "../Home/ShopBYCategory.jsx/TabToyDetails";
+import AllToysDetails from "../Toys/AllToysDetails";
 
 
 const router = createBrowserRouter([
@@ -34,12 +36,22 @@ const router = createBrowserRouter([
           path:'addtoys',
           element:<AddToys></AddToys>
         },{
-          path:'alltoys',
-          element:<AllToys></AllToys>,
-          loader:()=>fetch('http://localhost:5000/addToys')
+          path:'/alltoys',
+          element:<AllToys></AllToys>
+          
+        },
+        {
+          path:'allToysDetails/:id',
+          element:<AllToysDetails></AllToysDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/addToys/${params.id}`)
         },{
-          path:'mytoys',
+          path:'/mytoys',
           element:<Mytoys></Mytoys>
+        },{
+          path:'tabtoydetails/:id',
+          element:<TabToyDetails></TabToyDetails>,
+          loader:({params})=>fetch(`http://localhost:5000/addToys/${params.id}`)
+
         }
       ]
     },

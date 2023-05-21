@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const AllToys = () => {
-  const toys = useLoaderData();
+  const [toys, setToys] = useState([]);
+  const [searchText, setSearchText] = useState('');
   const [showAll, setShowAll] = useState(false);
 
-  // Slice the toys array to show only 20 items if showAll is false
+  useEffect(() => {
+    fetch('http://localhost:5000/addToys')
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  }, []);
+
   const displayedToys = showAll ? toys : toys.slice(0, 20);
 
   const handleSeeMore = () => {
     setShowAll(true);
   };
 
+  const handleSearch = () => {
+    fetch(`http://localhost:5000/toySearch/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  };
+
   return (
     <div className="overflow-x-auto">
+      <div className="my-4 text-center ">
+        <input
+          onChange={(e) => setSearchText(e.target.value)}
+          type="text"
+          className="p-2"
+        />
+        <button className='ml-1 btn btn-outline' onClick={handleSearch}>Search</button>
+      </div>
+
       <table className="table w-11/12 mx-auto table-compact">
         <thead>
           <tr>
@@ -30,12 +51,16 @@ const AllToys = () => {
           {displayedToys.map((toy, index) => (
             <tr key={index}>
               <th>{index + 1}</th>
-              <td>{toy.sellerName ? toy.sellerName : "no name"}</td>
+              <td>{toy.sellerName ? toy.sellerName : 'no name'}</td>
               <td>{toy.productName}</td>
               <td>{toy.subCategory}</td>
               <td>{toy.price}</td>
               <td>{toy.quantity}</td>
-              <td className="btn btn-outline">View Details</td>
+              <td>
+                <Link to={`/allToysDetails/${toy._id}`}>
+                  <button className="btn btn-primary">View Details</button>
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const TabToys = ({ toy }) => {
   const { productName, imgUrl, price, rating, _id } = toy;
 
@@ -15,7 +15,7 @@ const TabToys = ({ toy }) => {
           <p>{rating}</p>
 
           <div className="card-actions">
-            <button className="btn btn-primary">View Details</button>
+            <Link to={`/tabtoydetails/${_id}`}><button  className="btn btn-primary">View Details</button></Link>
           </div>
         </div>
       </div>

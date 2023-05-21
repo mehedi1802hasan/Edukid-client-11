@@ -5,7 +5,7 @@ const MyToyDetails = ({myToy,index}) => {
     return (
         <div>
             {/* The button to open modal */}
-<label htmlFor={`my-modal-${index}`} className="btn">open modal</label>
+<label htmlFor={`my-modal-${index}`} className="btn">Details</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id={`my-modal-${index}`} className="modal-toggle" />
