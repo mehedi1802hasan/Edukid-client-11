@@ -11,6 +11,7 @@ import AllToys from "../Toys/AllToys";
 import Mytoys from "../Toys/MyToys";
 import TabToyDetails from "../Home/ShopBYCategory.jsx/TabToyDetails";
 import AllToysDetails from "../Toys/AllToysDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -42,14 +43,14 @@ const router = createBrowserRouter([
         },
         {
           path:'allToysDetails/:id',
-          element:<AllToysDetails></AllToysDetails>,
+          element:<PrivateRoute><AllToysDetails></AllToysDetails></PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/addToys/${params.id}`)
         },{
           path:'/mytoys',
           element:<Mytoys></Mytoys>
         },{
           path:'tabtoydetails/:id',
-          element:<TabToyDetails></TabToyDetails>,
+          element:<PrivateRoute><TabToyDetails></TabToyDetails></PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/addToys/${params.id}`)
 
         }
