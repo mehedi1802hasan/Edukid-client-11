@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Firebase/Provider';
 import Swal from 'sweetalert2';
-
+import useTitle from '../hooks/useTitle';
 import UpdateToysModal from './UpdateToysModal';
 import MyToyDetails from './MyToyDetails';
 const Mytoys = () => {
+  useTitle('mytoys')
     const {user}=useContext(AuthContext)
     const [myToys,setMyToys]=useState([])
     useEffect(()=>{
@@ -40,7 +41,7 @@ const handleDelete=_id=>{
 }
 
     return (
-        <div className="overflow-x-auto ">
+        <div className="overflow-x-auto min-h-[400px]">
         <table className="table w-11/12 mx-auto table-compact">
           <thead>
             <tr>

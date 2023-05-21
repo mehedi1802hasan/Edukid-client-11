@@ -25,12 +25,13 @@ const ShopTab = () => {
   return (
     <div className='my-10 text-center'>
       <Tabs>
+      <h3 className='my-5 text-3xl font-bold'>Shop by category</h3>
         <TabList>
           <Tab onClick={() => handleTabClick('science')}>Science</Tab>
           <Tab onClick={() => handleTabClick('math')}>Math Toys</Tab>
           <Tab onClick={() => handleTabClick('english')}>English Toys</Tab>
         </TabList>
-
+        
         <TabPanel>
           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
             {filteredToys.map((toy) => (

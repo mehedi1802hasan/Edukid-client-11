@@ -4,8 +4,10 @@ import { AuthContext } from '../Firebase/Provider';
 import Swal from 'sweetalert2';
 import { FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom'; 
-
+import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 const Login = () => {
+  useTitle('login')
   const { loginUser, user, googleLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate(); // Added useNavigate hook
@@ -92,6 +94,7 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <h3 className='my-3 font-bold text-center'>Are you new? <Link className='text-green-700' to='/registration'>Registration</Link></h3>
             <button className="mx-auto mb-3 w-52 btn btn-warning hover:bg-orange-500" onClick={handleGoogleLogin}>
               <FaGoogle />Google
             </button>

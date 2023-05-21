@@ -1,9 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Firebase/Provider';
-import Swal from 'sweetalert2'
-
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 const Registration = () => {
+  useTitle('registration')
   const {signUpUser,user}=useContext(AuthContext);
     const handleRegistration=event=>{
         event.preventDefault();
@@ -65,6 +67,8 @@ const Registration = () => {
         <div className="mt-6 form-control">
           <button className="btn btn-warning hover:bg-orange-500">Registration</button>
         </div>
+        <h3 className='my-3 font-bold text-center '>Have you account? <Link className='text-green-700' to='/login'>Login</Link></h3>
+
       </form>
     </div>
   </div>

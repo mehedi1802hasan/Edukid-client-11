@@ -19,7 +19,7 @@ const Subscription = () => {
         }}
       >
         <div className="bg-opacity-90 hero-overlay"></div>
-        <div className="hero-content text-neutral-content">
+        <div className="hero-content text-neutral-content ">
           <div className="max-w-md">
             <h1 className="mb-5 text-4xl font-bold text-red-600">Special Discount</h1>
             <p className="mb-5">GET 10% OFFER!!</p>

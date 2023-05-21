@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import useTitle from '../hooks/useTitle';
 const AllToys = () => {
+  useTitle('alltoys')
   const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAll, setShowAll] = useState(false);
@@ -25,7 +26,7 @@ const AllToys = () => {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto  min-h-[400px]">
       <div className="my-4 text-center ">
         <input
           onChange={(e) => setSearchText(e.target.value)}

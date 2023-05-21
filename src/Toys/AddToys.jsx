@@ -2,7 +2,9 @@ import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Firebase/Provider';
 import Swal from 'sweetalert2';
+import useTitle from '../hooks/useTitle';
 const AddToys = () => {
+  useTitle('addtoys')
   const {user}=useContext(AuthContext)
     const handleAddToy=event=>{
         event.preventDefault();
