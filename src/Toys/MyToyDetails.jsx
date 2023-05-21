@@ -19,7 +19,7 @@ const MyToyDetails = ({myToy,index}) => {
     <p className="py-4 overflow-y-auto whitespace-normal max-h-auto">Price:{price}</p>
     <p className="py-4 overflow-y-auto whitespace-normal max-h-auto">rating:{rating}</p>
     <p className="py-4 overflow-y-auto whitespace-normal max-h-auto">quantity:{quantity}</p>
-    <p className="py-4 overflow-y-auto whitespace-normal max-h-auto">Description{description}</p>
+    <p className="py-4 overflow-y-auto whitespace-normal max-h-auto">Description: {description}</p>
    
    </div>
   </div>

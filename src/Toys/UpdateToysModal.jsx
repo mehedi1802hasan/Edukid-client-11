@@ -60,7 +60,7 @@ const handleAddToy=event=>{
         </div>
       
         
-        <div className=" form-control">
+        <div className="hidden  form-control">
        <label className="label">
             <span className="label-text">id</span>
           </label>

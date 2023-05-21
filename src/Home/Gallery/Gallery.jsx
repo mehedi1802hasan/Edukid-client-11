@@ -26,7 +26,7 @@ const Galleray = () => {
           
 
 
-             <h3 className='p-12 text-3xl font-bold text-center'>Best <span className='text-red-600'>Selling</span> Products</h3>
+             <h3  className='p-12 text-3xl font-bold text-center'>Best <span className='text-red-600'>Selling</span> Products</h3>
              <Marquee speed={170}>
       <div className="flex gap-4 px-10 ">
         {images.map((image, i) => (
