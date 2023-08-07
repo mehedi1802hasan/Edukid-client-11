@@ -22,7 +22,7 @@ const AddToys = () => {
             productName,sellerName,sellerEmail,imgUrl,price,rating,quantity,subCategory,description
         }
         console.log(addToy)
-        fetch('http://localhost:5000/addToys',{
+        fetch('https://edukids-server.vercel.app/addToys',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
@@ -112,7 +112,7 @@ const AddToys = () => {
         
         </div>
         <div className="mt-6 form-control">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary">Add-Toy</button>
         </div>
       </form>
     </div>

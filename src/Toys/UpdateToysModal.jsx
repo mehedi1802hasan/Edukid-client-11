@@ -20,7 +20,7 @@ const handleAddToy=event=>{
     price,quantity,_id,description
     }
     console.log(addToy)
-    fetch(`http://localhost:5000/updateToy/${_id}`,{
+    fetch(`https://edukids-server.vercel.app/updateToy/${_id}`,{
         method:"PUT",
         headers:{
             'content-type':'application/json'
@@ -60,7 +60,7 @@ const handleAddToy=event=>{
         </div>
       
         
-        <div className="hidden  form-control">
+        <div className="hidden form-control">
        <label className="label">
             <span className="label-text">id</span>
           </label>
@@ -84,7 +84,7 @@ const handleAddToy=event=>{
         
         </div>
         <div className="mt-6 form-control">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary">Update</button>
         </div>
       </form>
     

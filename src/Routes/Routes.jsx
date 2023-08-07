@@ -44,14 +44,14 @@ const router = createBrowserRouter([
         {
           path:'allToysDetails/:id',
           element:<PrivateRoute><AllToysDetails></AllToysDetails></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/addToys/${params.id}`)
+          loader:({params})=>fetch(`https://edukids-server.vercel.app/addToys/${params.id}`)
         },{
           path:'/mytoys',
           element:<PrivateRoute><Mytoys></Mytoys></PrivateRoute>
         },{
           path:'tabtoydetails/:id',
           element:<PrivateRoute><TabToyDetails></TabToyDetails></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/addToys/${params.id}`)
+          loader:({params})=>fetch(`https://edukids-server.vercel.app/addToys/${params.id}`)
 
         }
       ]

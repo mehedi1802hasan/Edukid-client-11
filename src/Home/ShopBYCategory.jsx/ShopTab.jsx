@@ -8,7 +8,7 @@ const ShopTab = () => {
   const [activeTab, setActiveTab] = useState('science');
 
   useEffect(() => {
-    fetch('http://localhost:5000/addToys')
+    fetch('https://edukids-server.vercel.app/addToys')
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

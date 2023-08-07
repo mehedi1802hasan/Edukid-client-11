@@ -8,7 +8,7 @@ const AllToys = () => {
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/addToys')
+    fetch('https://edukids-server.vercel.app/addToys')
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -20,7 +20,7 @@ const AllToys = () => {
   };
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/toySearch/${searchText}`)
+    fetch(`https://edukids-server.vercel.app/toySearch/${searchText}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   };
@@ -60,6 +60,7 @@ const AllToys = () => {
               <td>
                 <Link to={`/allToysDetails/${toy._id}`}>
                   <button className="btn btn-primary">View Details</button>
+                
                 </Link>
               </td>
             </tr>

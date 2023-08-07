@@ -9,7 +9,7 @@ const Mytoys = () => {
     const {user}=useContext(AuthContext)
     const [myToys,setMyToys]=useState([])
     useEffect(()=>{
-   fetch(`http://localhost:5000/myToys/${user?.email}`)
+   fetch(`https://edukids-server.vercel.app/myToys/${user?.email}`)
    .then(res=>res.json())
    .then(data=>
     {setMyToys(data);
@@ -22,7 +22,7 @@ const handleDelete=_id=>{
   console.log(_id);
   const procced=confirm('Are you sure you want to delete')
   if(procced){
-  fetch(`http://localhost:5000/myToys/:email/${_id}`,{
+  fetch(`https://edukids-server.vercel.app/myToys/:email/${_id}`,{
     method:"DELETE",
   }).then(res=>res.json())
   .then(data=>
@@ -42,6 +42,7 @@ const handleDelete=_id=>{
 
     return (
         <div className="overflow-x-auto min-h-[400px]">
+          <h3 className='my-5 text-4xl font-bold text-center text-red-500'>Available MyToys: {myToys.length}</h3>
         <table className="table w-11/12 mx-auto table-compact">
           <thead>
             <tr>

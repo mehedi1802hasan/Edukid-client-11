@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Firebase/Provider';
 const Navbar = () => {
-  const {user, logOut,loading}=useContext(AuthContext)
+  const {user, logOut,loading}=useContext(AuthContext);
+
   const handleLogout=()=>{
     logOut()
     .then(()=>{})
@@ -69,7 +70,16 @@ const Navbar = () => {
           user ? 
           <div className=" lg:flex">
           <ul className="px-1 menu menu-horizontal">
-          <li><img src="https://img.icons8.com/?size=1x&id=23244&format=png" alt="" /></li>
+          <li>
+  <img
+    src={user.photoURL || 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp'}
+    alt=""
+    class="w-20 h-20 rounded"
+    title={user?.displayName || "name not found"}
+  />
+</li>
+
+
           <li><button onClick={handleLogout}><Link >LogOut</Link></button></li>   
           </ul>
         </div>
